@@ -42,6 +42,8 @@ docs/
 infra/
   docker/
   k8s/
+  database/
+config/
 .github/workflows/
 ```
 
@@ -57,3 +59,20 @@ docker compose -f infra/docker/docker-compose.yml up
 
 The current repository is a scalable enterprise starter, not a finished commercial HR suite. It establishes the architecture, contracts, module boundaries, configurable engines, deployment baseline, and documentation needed to build the full platform safely.
 
+## Implemented Starter APIs
+
+- `GET /api/v1/health`
+- `GET /api/v1/workforce/suite`
+- `GET /api/v1/workforce/modules`
+- `GET /api/v1/employees`
+- `GET /api/v1/employees/:id`
+- `POST /api/v1/employees`
+- `GET /api/v1/organization/units`
+- `GET /api/v1/organization/org-chart`
+- `GET /api/v1/rules`
+- `POST /api/v1/rules`
+- `POST /api/v1/rules/evaluate`
+- `GET /api/v1/platform/capabilities`
+- `GET /api/v1/platform/security`
+- `GET /api/v1/platform/analytics`
+- `GET /api/v1/platform/ai`

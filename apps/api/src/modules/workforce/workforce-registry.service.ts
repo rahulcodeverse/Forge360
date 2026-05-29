@@ -25,5 +25,20 @@ export class WorkforceRegistryService {
     { key: 'analytics', name: 'Analytics and BI', lifecycleStage: 'platform' },
     { key: 'marketplace', name: 'Integrations Marketplace', lifecycleStage: 'platform' }
   ];
-}
 
+  getSuiteOverview() {
+    return {
+      product: 'Forge360 Workforce OS',
+      tagline: 'Building Better Workplaces',
+      scaleTarget: '100,000+ employees per enterprise tenant',
+      architecture: 'multi-tenant, configurable, cloud-native, AI-powered',
+      modules: this.modules,
+      guarantees: [
+        'No hardcoded country-specific HR, payroll, tax, or compliance logic',
+        'Effective-dated policy and rule versions',
+        'RBAC, ABAC, audit logging, and tenant isolation',
+        'REST, GraphQL-ready composition, WebSocket-ready notifications',
+      ],
+    };
+  }
+}

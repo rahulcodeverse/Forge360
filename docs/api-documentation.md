@@ -5,6 +5,8 @@
 Base path: `/api/v1`
 
 - `GET /health`
+- `GET /workforce/suite`
+- `GET /workforce/modules`
 - `POST /auth/email/login`
 - `POST /auth/mobile/otp`
 - `GET /auth/oauth/:provider`
@@ -13,6 +15,8 @@ Base path: `/api/v1`
 - `POST /employees`
 - `GET /employees/:id`
 - `PATCH /employees/:id`
+- `GET /organization/units`
+- `GET /organization/org-chart`
 - `POST /custom-fields`
 - `POST /jobs`
 - `POST /candidates`
@@ -20,7 +24,11 @@ Base path: `/api/v1`
 - `POST /attendance/check-in`
 - `POST /payroll/runs`
 - `POST /rules`
-- `POST /rules/:id/evaluate`
+- `POST /rules/evaluate`
+- `GET /platform/capabilities`
+- `GET /platform/security`
+- `GET /platform/analytics`
+- `GET /platform/ai`
 - `POST /workflows`
 - `POST /forms`
 - `POST /ai/copilot/messages`
@@ -54,4 +62,3 @@ Swagger UI is exposed at `/api/docs` by the NestJS API bootstrap.
 - Sensitive fields are permission filtered.
 - Idempotency keys are required for payroll, workflow, and integration write APIs.
 - Webhooks are signed and replay protected.
-

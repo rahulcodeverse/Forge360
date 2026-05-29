@@ -1,0 +1,70 @@
+{
+  "tenantId": "demo",
+  "product": "Forge360 Workforce OS",
+  "branding": {
+    "name": "Forge360",
+    "tagline": "Building Better Workplaces",
+    "primaryColor": "#0f766e"
+  },
+  "localization": {
+    "languages": ["en"],
+    "currencies": ["USD"],
+    "timeZones": ["UTC"],
+    "dateFormats": ["yyyy-MM-dd"],
+    "taxYearProfiles": [
+      {
+        "code": "GENERIC_CALENDAR_YEAR",
+        "startMonth": 1,
+        "startDay": 1
+      }
+    ]
+  },
+  "dynamicFields": [
+    {
+      "entity": "employee",
+      "key": "workMode",
+      "label": "Work Mode",
+      "type": "select",
+      "options": ["office", "hybrid", "remote"]
+    },
+    {
+      "entity": "employee",
+      "key": "skills",
+      "label": "Skills",
+      "type": "multi_text"
+    }
+  ],
+  "payrollComponents": [
+    {
+      "code": "BASE_EARNING",
+      "name": "Base Earning",
+      "type": "earning",
+      "calculationMode": "fixed",
+      "ruleCode": "BASE_EARNING_RULE"
+    },
+    {
+      "code": "TENANT_CONFIGURED_CONTRIBUTION",
+      "name": "Tenant Configured Contribution",
+      "type": "contribution",
+      "calculationMode": "formula",
+      "ruleCode": "TENANT_CONTRIBUTION_RULE"
+    }
+  ],
+  "workflowTemplates": [
+    {
+      "name": "Leave Approval",
+      "category": "leave",
+      "steps": ["start", "manager_approval", "condition", "hr_review", "end"]
+    },
+    {
+      "name": "Payroll Approval",
+      "category": "payroll",
+      "steps": ["start", "payroll_review", "finance_approval", "publish", "end"]
+    }
+  ],
+  "security": {
+    "authMethods": ["email", "mobile_otp", "google", "microsoft", "saml", "oauth2", "mfa"],
+    "authorization": ["rbac", "abac"],
+    "auditRequired": true
+  }
+}
