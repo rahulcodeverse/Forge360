@@ -10,6 +10,8 @@
   },
   "scripts": {
     "dev": "corepack pnpm --parallel --filter @hrms/api --filter @hrms/web dev",
+    "start:api:local": "node tools/start-api-local.mjs",
+    "start:web:local": "node tools/start-web-local.mjs",
     "build": "corepack pnpm --recursive run build",
     "typecheck": "corepack pnpm --recursive run typecheck",
     "lint": "corepack pnpm --recursive run lint",
