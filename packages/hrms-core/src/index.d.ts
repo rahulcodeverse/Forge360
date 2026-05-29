@@ -105,4 +105,24 @@ export const indiaPayrollPlugin: unknown;
 export const usPayrollPlugin: unknown;
 export const ukPayrollPlugin: unknown;
 export const uaePayrollPlugin: unknown;
-
+export function createPasswordHash(password: string): string;
+export function verifyPassword(password: string, storedHash: string): boolean;
+export function hashToken(token: string): string;
+export function canAttemptLogin(account: { failedAttempts: number; lockedUntil?: string | null }, now?: Date): boolean;
+export function registerFailedLogin(account: { failedAttempts: number; lockedUntil?: string | null }, now?: Date): {
+  failedAttempts: number;
+  lockedUntil: string | null;
+};
+export function registerSuccessfulLogin(): {
+  failedAttempts: number;
+  lockedUntil: null;
+};
+export function hasPermission(actor: { permissions: string[] }, permission: string): boolean;
+export function canAccessEmployeeRecord(
+  actor: { id: string; employeeId?: string; directReportIds: string[]; permissions: string[] },
+  resource: { employeeId: string },
+): boolean;
+export function revokeSession(session: { id: string; revokedAt?: string | null }, now?: Date): {
+  id: string;
+  revokedAt: string;
+};

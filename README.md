@@ -30,6 +30,24 @@ This commit establishes the first production slice:
 - Core business engines for leave balances, approval workflow routing, payroll calculation, and audit entries.
 - Tests proving leave approval deducts balance, LOP feeds payroll, and approvals are audited.
 - API/web app shells in the requested frameworks.
+- Auth/RBAC slice with password hashing, login lockout, refresh-token hashing, session revocation, role permissions, and employee data scopes.
+
+## Demo Auth Users
+
+Use `X-Tenant-ID: acme`.
+
+| Role | Email | Password |
+|---|---|---|
+| HR Admin | `hr.admin@acme.example` | `AcmeAdmin123!` |
+| Manager | `manager@acme.example` | `AcmeManager123!` |
+| Employee | `employee@acme.example` | `AcmeEmployee123!` |
+
+Auth endpoints:
+
+- `POST /api/v1/auth/login`
+- `POST /api/v1/auth/refresh`
+- `POST /api/v1/auth/sessions/revoke`
+- `GET /api/v1/auth/me`
 
 ## Quality Gates
 
@@ -47,4 +65,3 @@ pnpm build
 - Sensitive fields are encrypted before persistence.
 - Country payroll/compliance behavior is implemented as plugins/configuration, never mixed into core payroll logic.
 - UI text is routed through i18n keys.
-

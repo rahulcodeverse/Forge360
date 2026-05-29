@@ -5,6 +5,58 @@ info:
 servers:
   - url: /api/v1
 paths:
+  /auth/login:
+    post:
+      summary: Login with email and password
+      parameters:
+        - name: X-Tenant-ID
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 12
+                totpCode:
+                  type: string
+      responses:
+        "201":
+          description: Access token, refresh token, session, and safe user profile
+  /auth/refresh:
+    post:
+      summary: Rotate or refresh an access token from a refresh token
+      responses:
+        "201":
+          description: New access token
+  /auth/sessions/revoke:
+    post:
+      summary: Revoke an active session
+      responses:
+        "201":
+          description: Session revocation result
+  /auth/me:
+    get:
+      summary: Return current tenant auth context
+      parameters:
+        - name: X-Tenant-ID
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Current user context
   /employees:
     get:
       summary: List employees
@@ -29,4 +81,3 @@ paths:
       responses:
         "201":
           description: Payroll run queued
-
