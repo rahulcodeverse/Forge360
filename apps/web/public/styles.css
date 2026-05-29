@@ -139,7 +139,9 @@ button.secondary {
 .metric,
 .panel,
 .module-card,
-.person-card {
+.person-card,
+.record-card,
+.canvas {
   border: 1px solid rgba(17, 24, 39, 0.12);
   border-radius: 8px;
   background: #fff;
@@ -155,7 +157,8 @@ button.secondary {
   font-size: 28px;
 }
 
-.metric small {
+.metric small,
+.record-card small {
   color: #5b6472;
 }
 
@@ -176,14 +179,16 @@ button.secondary {
   font-weight: 700;
 }
 
-.split {
+.split,
+.builder {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 24px;
 }
 
-.panel {
+.panel,
+.canvas {
   padding: 18px;
 }
 
@@ -211,12 +216,14 @@ button.secondary {
   margin: 24px 0 12px;
 }
 
-.module-grid {
+.module-grid,
+.table {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .module-card,
-.person-card {
+.person-card,
+.record-card {
   padding: 16px;
   min-height: 132px;
   display: grid;
@@ -229,10 +236,48 @@ button.secondary {
   font-size: 13px;
 }
 
-.table {
+.table,
+.record-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 12px;
+}
+
+.record-card {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  align-items: center;
+  min-height: 88px;
+}
+
+.record-card small {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.record-card strong {
+  overflow-wrap: anywhere;
+}
+
+.canvas {
+  min-height: 220px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.canvas h3 {
+  width: 100%;
+}
+
+.canvas span {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: #123c3a;
+  color: #fff;
+  font-weight: 700;
 }
 
 @media (max-width: 980px) {
@@ -241,7 +286,8 @@ button.secondary {
   }
 
   .metrics,
-  .split {
+  .split,
+  .builder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -264,7 +310,8 @@ button.secondary {
 
   .metrics,
   .split,
-  .lifecycle {
+  .lifecycle,
+  .builder {
     grid-template-columns: 1fr;
   }
 }
