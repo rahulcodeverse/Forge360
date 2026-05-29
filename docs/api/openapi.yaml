@@ -1,0 +1,32 @@
+openapi: 3.1.0
+info:
+  title: Enterprise HRMS API
+  version: 1.0.0
+servers:
+  - url: /api/v1
+paths:
+  /employees:
+    get:
+      summary: List employees
+      parameters:
+        - name: X-Tenant-ID
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Employee list envelope
+  /leave/requests:
+    post:
+      summary: Create leave request
+      responses:
+        "201":
+          description: Leave request created
+  /payroll/runs:
+    post:
+      summary: Start payroll run
+      responses:
+        "201":
+          description: Payroll run queued
+
