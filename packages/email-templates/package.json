@@ -1,0 +1,18 @@
+{
+  "name": "@hrms/email-templates",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc && node scripts/compile.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "mjml": "^4.15.3"
+  },
+  "devDependencies": {
+    "@types/mjml": "^4.7.4",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0"
+  }
+}

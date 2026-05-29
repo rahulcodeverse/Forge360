@@ -1,0 +1,86 @@
+global:
+  imageTag: latest
+  registry: ""
+  imagePullPolicy: IfNotPresent
+
+api:
+  replicaCount: 2
+  image:
+    repository: hrms-api
+  resources:
+    requests: { cpu: 250m, memory: 512Mi }
+    limits: { cpu: 1000m, memory: 1Gi }
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+  service:
+    type: ClusterIP
+    port: 3001
+
+web:
+  replicaCount: 2
+  image:
+    repository: hrms-web
+  resources:
+    requests: { cpu: 100m, memory: 256Mi }
+    limits: { cpu: 500m, memory: 512Mi }
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPUUtilizationPercentage: 70
+  service:
+    type: ClusterIP
+    port: 3000
+
+worker:
+  replicaCount: 2
+  image:
+    repository: hrms-worker
+  resources:
+    requests: { cpu: 250m, memory: 512Mi }
+    limits: { cpu: 1000m, memory: 1Gi }
+
+pdfService:
+  replicaCount: 1
+  image:
+    repository: hrms-pdf-service
+  resources:
+    requests: { cpu: 500m, memory: 1Gi }
+    limits: { cpu: 2000m, memory: 2Gi }
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: app.hrms.example.com
+      paths:
+        - path: /api
+          pathType: Prefix
+          service: api
+        - path: /
+          pathType: Prefix
+          service: web
+  tls:
+    - secretName: hrms-tls
+      hosts: [app.hrms.example.com]
+
+secrets:
+  existingSecret: hrms-secrets
+
+postgresql:
+  external: true
+  host: ""
+  port: 5432
+  database: hrms
+
+redis:
+  external: true
+  host: ""
+  port: 6379
