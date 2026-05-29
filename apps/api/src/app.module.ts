@@ -14,6 +14,9 @@ import { PayrollModule } from './modules/payroll/payroll.module';
 import { PerformanceModule } from './modules/performance/performance.module';
 import { RecruitmentModule } from './modules/recruitment/recruitment.module';
 import { LearningModule } from './modules/learning/learning.module';
+import { AssetsModule } from './modules/assets/assets.module';
+import { ExpensesModule } from './modules/expenses/expenses.module';
+import { OnboardingModule } from './modules/onboarding/onboarding.module';
 import { ReportsModule } from './modules/reports/reports.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { StorageModule } from './modules/storage/storage.module';
@@ -67,6 +70,9 @@ import { validateConfig } from './config/env.validation';
     PerformanceModule,
     RecruitmentModule,
     LearningModule,
+    OnboardingModule,
+    AssetsModule,
+    ExpensesModule,
     ReportsModule,
     NotificationsModule,
     StorageModule,
