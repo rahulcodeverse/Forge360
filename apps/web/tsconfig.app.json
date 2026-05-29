@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/apps/web",
+    "rootDir": "../..",
+    "jsx": "preserve"
+  },
+  "include": ["src/**/*.ts", "../../libs/**/*.ts"]
+}
+

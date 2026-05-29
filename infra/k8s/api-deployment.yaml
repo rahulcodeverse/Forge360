@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forge360-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: forge360-api
+  template:
+    metadata:
+      labels:
+        app: forge360-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/rahulcodeverse/forge360-api:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forge360-api
+spec:
+  selector:
+    app: forge360-api
+  ports:
+    - port: 80
+      targetPort: 3000
+

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forge360-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: forge360-web
+  template:
+    metadata:
+      labels:
+        app: forge360-web
+    spec:
+      containers:
+        - name: web
+          image: ghcr.io/rahulcodeverse/forge360-web:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forge360-web
+spec:
+  selector:
+    app: forge360-web
+  ports:
+    - port: 80
+      targetPort: 8080
+
