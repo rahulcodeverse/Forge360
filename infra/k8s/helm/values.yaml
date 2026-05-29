@@ -1,7 +1,0 @@
-api:
-  image: ghcr.io/example/hrms-api:latest
-  replicas: 3
-web:
-  image: ghcr.io/example/hrms-web:latest
-  replicas: 3
-
