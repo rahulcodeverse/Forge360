@@ -4,6 +4,7 @@
   "private": true,
   "description": "Forge360 Workforce OS enterprise SaaS monorepo",
   "scripts": {
+    "start": "node tools/start-local.mjs",
     "build": "npm run build:api && npm run build:web",
     "build:api": "tsc -p apps/api/tsconfig.app.json",
     "build:web": "tsc -p apps/web/tsconfig.app.json",
@@ -33,4 +34,3 @@
     "node": ">=22"
   }
 }
-

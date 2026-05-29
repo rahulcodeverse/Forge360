@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forge360 Workforce OS</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span>F360</span>
+          <div>
+            <h1>Forge360</h1>
+            <p>Building Better Workplaces</p>
+          </div>
+        </div>
+        <nav>
+          <a class="active" href="#command">Command Center</a>
+          <a href="#people">People</a>
+          <a href="#talent">Talent</a>
+          <a href="#time">Time</a>
+          <a href="#payroll">Payroll</a>
+          <a href="#compliance">Compliance</a>
+          <a href="#workflows">Workflows</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#ai">AI Copilot</a>
+        </nav>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h2>Workforce Command Center</h2>
+            <p>Enterprise workforce lifecycle operations across people, payroll, compliance, AI, and analytics.</p>
+          </div>
+          <div class="actions">
+            <button class="secondary" type="button">Import Employees</button>
+            <button type="button">Create Workflow</button>
+          </div>
+        </header>
+
+        <section class="metrics" id="metrics"></section>
+
+        <section class="lifecycle">
+          <span>Recruit</span>
+          <span>Onboard</span>
+          <span>Manage</span>
+          <span>Pay</span>
+          <span>Grow</span>
+          <span>Engage</span>
+          <span>Exit</span>
+        </section>
+
+        <section class="split">
+          <article class="panel">
+            <h3>Global Compliance Engine</h3>
+            <p>Rules are tenant-configured using formulas, slabs, effective dates, templates, and approval workflows.</p>
+            <div class="chips">
+              <span>Leave policies</span>
+              <span>Attendance policies</span>
+              <span>Payroll policies</span>
+              <span>Tax policies</span>
+              <span>Overtime rules</span>
+              <span>Holiday calendars</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Forge360 AI</h3>
+            <p>Copilots and prediction models stay inside tenant, legal entity, and employee-permissioned data boundaries.</p>
+            <div class="chips">
+              <span>HR Copilot</span>
+              <span>AI Recruitment</span>
+              <span>AI Analytics</span>
+              <span>Document Intelligence</span>
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <h3>Product Modules</h3>
+            <p>Every module is configurable and tenant-scoped.</p>
+          </div>
+          <div class="module-grid" id="modules"></div>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <h3>People Directory</h3>
+            <p>Dynamic employee fields and lifecycle records.</p>
+          </div>
+          <div class="table" id="employees"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/main.js"></script>
+  </body>
+</html>
